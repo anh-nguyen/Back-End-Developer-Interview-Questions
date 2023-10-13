@@ -285,23 +285,36 @@ Why are global and static objects evil? Can you show it with a code example?
 Tell me about Inversion of Control and how it improves the design of code.<br/>
 [Resources](design-patterns/inversion-of-control.md)
 
+-> https://martinfowler.com/bliki/InversionOfControl.html -- library vs. framework. framework controls the execution of the methods, you provide the logic only
 
 #### Law of Demeter
 The Law of Demeter (the Principle of Least Knowledge) states that each unit should have only limited knowledge about other units and it should only talk to its immediate friends (sometimes stated as "don't talk to strangers").<br/>
 Would you write code violating this principle, show why it is a bad design and then fix it?<br/>
 [Resources](design-patterns/law-of-demeter.md)
 
+-> https://daedtech.com/visualization-mnemonics-for-software-principles/
+
+
 #### Active-Record
 Active-Record is the design pattern that promotes objects to include functions such as Insert, Update, and Delete, and properties that correspond to the columns in some underlying database table. In your opinion and experience, which are the limits and pitfalls of the this pattern?<br/>
 [Resources](design-patterns/active-record.md)
 
+-> Active record is simpler, but requires a knowledge of the database schema
+-> https://stackoverflow.com/questions/3828265/is-data-mapper-a-more-modern-trend-than-active-record 
+
 #### Data-Mapper
 Data-Mapper is a design pattern that promotes the use of a layer of Mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself. On the contrary, in Active-Record objects directly incorporate operations for persisting themselves to a database, and properties corresponding to the underlying database tables. Do you have an opinion on those patterns? When would you use one instead of the other?
+
+-> DB is a layer that separates DB abstraction with in-memory objects, so there is no coupling with the DB schema
+-> https://martinfowler.com/eaaCatalog/dataMapper.html
 
 #### Billion Dollar Mistake
 [Tony Hoare](https://en.m.wikipedia.org/wiki/Tony_Hoare) who invented the null reference once said "*I call it my billion-dollar mistake*" since it led to "*innumerable errors, vulnerabilities, and system crashes, which have probably caused a billion dollars of pain and damage in the last forty years*".
 
 Would you discuss the techniques to avoid it, such as the Null Object Pattern introduced by the GOF book, or Option types?
+
+-> http://www.cs.oberlin.edu/~jwalker/nullObjPattern/
+-> https://www.oracle.com/technical-resources/articles/java/java8-optional.html
 
 #### Inheritance vs Composition
 Many state that, in Object-Oriented Programming, composition is often a better option than inheritance. What's you opinion?
