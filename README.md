@@ -319,11 +319,34 @@ Would you discuss the techniques to avoid it, such as the Null Object Pattern in
 #### Inheritance vs Composition
 Many state that, in Object-Oriented Programming, composition is often a better option than inheritance. What's you opinion?
 
+-> Yes, I agree. Inheritance violates encapsulation, in that a subclass requires a knowing of the internals of its superclass to function properly.
+1. Overriding a parent class' method may lead to unexpected behavior -- e.g. invoking a superclass' method which invokes an overrode method in the subclass with an unexpected behavior
+2. Adding methods to a superclass may create issues e.g. security holes as invokers can call a new superclass method that might not implement checks similar to other methods in a subclass, or a subclass compilation might break if one of its own method names happen to coincide with the new superclass method
+3. In order to make a class ready to be extended by other class, we need extensive testing (by writing subclasses and exposing mthods and fields that might be needed by the subclass) and documentation (esp. noting whenever a superclass method uses an overridable method, which violates encapsulation because the documentation needs to share internal workings of the method)
+
+    For composition, we can use the wrapper / decorator pattern, where instead of extending class A, class B stores an instance of class A (i.e. wraps class A) and does extra work outside class A. The downside of this is that callbacks can be difficult (class A passes its self-reference to a function, but has no knowledge of class B, so class B cannot do the extra work e.g. instrumentation around class A's calls.
+
 #### Anti-Corruption Layer
 What is an Anti-corruption Layer?
 
+-> A layer than translates requests made by one system to another system. Typically used to connect systems that don't share the same semantics, e.g. a new microservice and a legacy system. 
+-> https://learn.microsoft.com/en-us/azure/architecture/patterns/anti-corruption-layer
+
 #### Singleton
 Singleton is a design pattern that restricts the instantiation of a class to one single object. Writing a Thread-Safe Singleton class is not so obvious. Would you try?
+-> We can use Bill Pugh's method / initialization-on-demand holder idiom: https://en.wikipedia.org/wiki/Initialization-on-demand_holder_idiom
+```
+public class SomeSingletonClient() {
+  private SomeSingletonClient () {}
+
+  private static LazyHolder() {
+    static final SomeClient SOME_CLIENT = new SomeClient();
+  }
+  public static getInstance() {
+    return LazyHolder.SOME_CLIENT;
+  }
+}
+```
 
 #### Data Abstraction
 The ability to change implementation without affecting clients is called Data Abstraction. Produce an example violating this property, then fix it.
