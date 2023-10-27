@@ -351,6 +351,23 @@ public class SomeSingletonClient() {
 #### Data Abstraction
 The ability to change implementation without affecting clients is called Data Abstraction. Produce an example violating this property, then fix it.
 
+
+```
+@Data
+public class Item() {
+  private int countInCenter;
+  private int countInDelivery;
+  private int countInReturn;
+
+  public int getStock() {
+    // Implementation can change based on the different types of item counts introduced
+  } 
+}
+
+
+
+```
+
 #### Don't Repeat Yourself
 Write a snippet of code violating the Don't Repeat Yourself (DRY) principle. Then, fix it.
 
