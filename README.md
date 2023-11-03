@@ -373,39 +373,72 @@ Write a snippet of code violating the Don't Repeat Yourself (DRY) principle. The
 
 #### Dependency Hell
 How would you deal with Dependency Hell?
+-> Specify how to prioritize dependencies
+-> Don't import unnecessary dependencies
+-> automated software updates
+-> clear dependency management policies
 
 #### Goto is Evil
 Is goto evil? You may have heard of the famous paper "Go To Statement Considered Harmful" by Edsger Dijkstra, in which he criticized the use of the `goto` statement and advocated structured programming instead. The use of `goto` has always been controversial, so much that even Dijkstra's letter was criticized with articles such as "'GOTO Considered Harmful' Considered Harmful". What's your opinion on the use of `goto`?
 
+-> https://stackoverflow.com/a/52307
+
 #### Robustness Principle
 The robustness principle is a general design guideline for software that recommends "*be conservative in what you send, be liberal in what you accept*". It is often reworded as "*be a tolerant reader and a careful writer*". Would you like to discuss the rationale of this principle?
+-> https://ardalis.com/postels-law-robustness-principle/
+-> It made sense of the early days of the internet where most messages may not have conformed to a particular version of a protocol
+-> It makes sense in to allow small mistakes from user's input, or sanitize the input for the user to provide a better experience
+-> The downside is that the erroneous inputs may be come the de facto standard -- to prevent this it is better to fail fast
 
 #### Separation of Concerns
 Separation of Concerns is a design principle for separating a computer program into distinct areas, each one addressing a separate concern. There are a lot of different mechanisms for achieving Separation of Concerns (use of objects, functions, modules, or patterns such as MVC and the like). Would you discuss this topic?
-
+-> It is a principle to improve readability, extensibility, and minimize blast radius when making changes to the program
+-> It also supports DRY principle as modules can be reused
+-> The downside is it can come with some implementation complexity / boilerplate setup code
 
 ### [[↑]](#toc) <a name='design'>Questions about Code Design:</a>
 
 #### High Cohesion, Loose Coupling
 It is often said that one of the most important goals in Object-Oriented Design (and code design in general) is to have High Cohesion and Loose Coupling. What does it mean? Why is it that important and how is it achieved?
+-> https://www.baeldung.com/cs/cohesion-vs-coupling
+-> It means that classes/functionalities within one module should be closely related together, concentrated on a purpose, without containing unrelated elements (high cohesion), while at the same time being independent of other modules even if they might work together (loose coupling)
 
 #### Index 0
 Why do array indexes start with '0' in most languages?
+-> http://developeronline.blogspot.com/2008/04/why-array-index-should-start-from-0.html
+-> Historical reasons: array name is a pointer in memory, so it's easier to start at 0 than starting at 1 as you'd have to calculate an offset
+-> https://www.cs.utexas.edu/users/EWD/transcriptions/EWD08xx/EWD831.html
+-> Mathematical reason 
 
 #### TDD
 How do tests and TDD influence code design?
+-> TDD ensures that developers write testable code
+-> When writing test cases, developers are forced to think about product requirements, edge cases etc.
+-> Initially all test cases fail, which shows that tests can detect errors
 
 #### DRY Violation
 Write a snippet of code violating the Don't Repeat Yourself (DRY) principle. Then, explain why it is a bad design, and fix it.
 
 #### Cohesion vs Coupling
 What's the difference between cohesion and coupling?
+-> Cohesion: the degree to which members of a module are related (to a concept or supporting a common purpose)
+-> Coupling: the degree to which separate modules are dependent on each other
+
 
 #### Refactoring
 What is refactoring useful for?
+Code refactoring can:
+-> Improve performance
+-> Improve readability
+-> Simplify / improve the design
+-> Improve maintainability
+-> Improve extensibility and reusability
 
 #### Code Comments
 Are comments in code useful? Some say they should be avoided as much as possible, and hopefully made unnecessary. Do you agree?
+-> https://gist.github.com/wojteklu/73c6914cc446146b8b533c0988cf8d29#comments-rules
+-> agree that as much as possible information should be contained in code (through thoughtful naming and design) rather than comments
+-> but some exceptions can be made to explain intent, warnings, etc.
 
 #### Design vs Architecture
 What is the difference between design and architecture?
