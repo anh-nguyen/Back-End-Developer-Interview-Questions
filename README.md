@@ -442,9 +442,15 @@ Are comments in code useful? Some say they should be avoided as much as possible
 
 #### Design vs Architecture
 What is the difference between design and architecture?
+-> https://stackoverflow.com/questions/704855/software-design-vs-software-architecture
+-> Architecture is the higher level "skeleton" / overview of the system. What goes where
+-> Design is the lower level, detailed specification of implementation of individual modules and components. The "how"
 
 #### Early Testing
 In TDD, why are tests written before code?
+-> Allows developers to think about edge cases before writing the code
+-> Allows developers to think about designing input / output of the function
+-> Initially the tests will fail -- this will help to confirm the code actually does something once it's written.
 
 #### Multiple Inheritance
 C++ supports multiple inheritance, and Java allows a class to implement multiple interfaces. What impact does using these facilities have on orthogonality? Is there a difference in impact between using multiple inheritance and multiple interfaces? Is there a difference between using delegation and using inheritance? [This question is from The Pragmatic Programmer, by Andrew Hunt and David Thomas]
